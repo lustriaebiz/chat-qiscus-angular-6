@@ -1,0 +1,27 @@
+<p>
+  Anda Sebagai Lustria
+</p>
+
+<ul *ngIf="true">
+  <li *ngFor="let data of users" > {{ data.username }}  
+    <a href="javascript:void(0)" (click) = "createRoom(data)">1vs1</a> | 
+    <a href="javascript:void(0)" (click) = "createGroupRoom(data)">Group</a>
+  </li>
+</ul>
+
+<br>
+<hr>
+<!-- <button (click)="loginOrRegister();">login</button> -->
+
+<hr>
+
+<div id="qiscus-widget" *ngIf="chatBox !== null">
+  <ul>
+    <li *ngFor="let data of chatBox.comments">{{ data.timestamp | date: 'MMM d, y, h:mm:ss a' }} | {{ data.message }} - {{data.status}}</li>
+  </ul>
+
+  <div>
+    <input type="text" [(ngModel)]="comment" #ctrl="ngModel" placeholder="message">
+    <button (click) ="sendComment()">send</button>
+  </div>
+</div>
